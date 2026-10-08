@@ -1,0 +1,151 @@
+.form {
+  display: grid;
+  gap: var(--sp-6);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-5) var(--sp-4);
+}
+.field {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+.half {
+  grid-column: span 2;
+}
+@media (min-width: 560px) {
+  .half {
+    grid-column: span 1;
+  }
+}
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--fg-2);
+}
+.optional {
+  font-weight: 400;
+  color: var(--fg-3);
+}
+.input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-input);
+  background: var(--bg-solid);
+  font-size: 1rem;
+  color: var(--fg);
+  transition:
+    border-color var(--dur-2) var(--ease-premium),
+    background-color var(--dur-2) var(--ease-premium);
+}
+.input::placeholder {
+  color: var(--fg-3);
+}
+.input:hover {
+  border-color: var(--fg-4);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--fg-2);
+  background: var(--bg-raised);
+  box-shadow: 0 0 0 4px var(--tint-2);
+}
+.select {
+  appearance: none;
+  padding-right: 2.25rem;
+  cursor: pointer;
+  background: var(--bg-solid) url('/media/ui/caret.svg') right 0.9rem center / 0.85rem no-repeat;
+}
+/* Native options inherit the dark scheme from color-scheme; keep them legible everywhere. */
+.select option {
+  background-color: var(--c-paper);
+  color: var(--c-ink);
+}
+.textarea {
+  min-height: 7rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+.fieldError .input {
+  border-color: var(--error);
+}
+.errorText {
+  font-size: 0.875rem;
+  color: var(--error);
+}
+
+.trap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4);
+}
+.privacy {
+  font-size: 0.8125rem;
+  color: var(--fg-3);
+}
+.status:empty {
+  display: none;
+}
+.error {
+  font-size: var(--fs-small);
+  color: var(--error);
+}
+
+.sent {
+  display: grid;
+  justify-items: start;
+  gap: var(--sp-4);
+  padding-block: var(--sp-7);
+}
+/* The logo's corner bracket, drawn in: the brand's own "done" mark. */
+.sentMark {
+  width: 3rem;
+  height: 3rem;
+  border-top: 6px solid var(--accent);
+  border-right: 6px solid var(--accent);
+  animation: bracket var(--dur-4) var(--ease-premium) both;
+}
+@keyframes bracket {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(-0.5rem, 0.5rem);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sentMark {
+    animation: none;
+  }
+}
+.sentTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.sentBody {
+  max-width: 44ch;
+  color: var(--fg-2);
+}
+.sentBody b {
+  color: var(--fg);
+  font-weight: 500;
+}
+.done {
+  margin-top: var(--sp-3);
+}

@@ -1,0 +1,11 @@
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.fill {
+  height: 100%;
+  object-fit: cover;
+}

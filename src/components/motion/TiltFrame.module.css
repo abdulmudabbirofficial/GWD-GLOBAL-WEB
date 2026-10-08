@@ -1,0 +1,35 @@
+.stage {
+  perspective: 1400px;
+}
+.frame {
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-premium);
+}
+.plate {
+  position: absolute;
+  inset: 6% 4%;
+  border-radius: var(--r-lg);
+  background: radial-gradient(circle at 50% 40%, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.02) 70%);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+  transform: translateZ(calc(var(--z) * -1));
+}
+.content {
+  position: relative;
+  transform: translateZ(var(--z));
+  animation: lift 1.4s var(--ease-premium) both;
+}
+@keyframes lift {
+  from {
+    opacity: 0;
+    transform: translateZ(0) translateY(3rem) scale(0.94);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .frame {
+    transform: none;
+  }
+}

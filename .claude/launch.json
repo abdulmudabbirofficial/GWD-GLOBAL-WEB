@@ -1,0 +1,32 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gwd-db",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "db:dev"
+      ],
+      "port": 5433
+    },
+    {
+      "name": "gwd-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "port": 3000
+    },
+    {
+      "name": "gwd-prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "start"
+      ],
+      "port": 3000
+    }
+  ]
+}

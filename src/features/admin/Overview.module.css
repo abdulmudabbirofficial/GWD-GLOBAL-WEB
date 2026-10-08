@@ -1,0 +1,103 @@
+/* The overview's numbers: three large figures, a day-by-day bar strip and a running feed. */
+.kpis {
+  display: grid;
+  gap: var(--sp-4);
+}
+@media (min-width: 760px) {
+  .kpis {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.kpi {
+  display: grid;
+  gap: 0.35rem;
+  padding: var(--sp-5);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: linear-gradient(160deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.01));
+}
+.kpi span {
+  color: var(--fg-3);
+  font-size: 0.8125rem;
+}
+.kpi b {
+  font-size: clamp(2rem, 1.4rem + 1.6vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.kpi small {
+  color: var(--fg-3);
+  font-size: 0.75rem;
+}
+.num {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding-inline: 0.45rem;
+  border-radius: 999px;
+  background: var(--c-red);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 7rem;
+}
+.bar {
+  position: relative;
+  flex: 1;
+  min-width: 3px;
+  height: max(3px, var(--h));
+  border-radius: 3px 3px 1px 1px;
+  background: linear-gradient(180deg, var(--c-red), rgb(230 57 70 / 0.35));
+  transition: filter 0.2s var(--ease-out);
+}
+.bar:hover {
+  filter: brightness(1.35);
+}
+.barTip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  background: var(--fg);
+  color: var(--bg-solid);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+.bar:hover .barTip {
+  opacity: 1;
+}
+.feed {
+  display: grid;
+  max-height: 26rem;
+  overflow-y: auto;
+}
+.feed li {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+  gap: var(--sp-3);
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+@media (max-width: 640px) {
+  .feed li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+}

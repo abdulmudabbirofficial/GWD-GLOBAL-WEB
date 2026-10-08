@@ -1,0 +1,30 @@
+.box {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  max-width: 100%;
+}
+.sm {
+  width: 72px;
+  height: 56px;
+}
+.md {
+  width: 150px;
+  height: 64px;
+}
+.lg {
+  width: 200px;
+  height: 88px;
+}
+.img {
+  object-fit: contain;
+}
+.gwd {
+  height: 70%;
+}
+.wordmark {
+  font-weight: 500;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+}

@@ -1,0 +1,185 @@
+.hero {
+  padding-top: calc(var(--header-h) + clamp(3rem, 9vh, 6rem));
+}
+.grid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+.intro {
+  display: grid;
+  gap: 1.75rem;
+  justify-items: start;
+}
+.title {
+  max-width: 11ch;
+  font-size: clamp(2.8rem, 1rem + 5.6vw, 7rem);
+  font-weight: 300;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+/* Each letter falls onto the water and settles. */
+.drop {
+  display: inline-block;
+  animation: drop 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.9em) scaleY(1.3);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+.title > span:last-child .drop {
+  color: var(--c-red-hot);
+}
+.details {
+  display: grid;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 28rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.details div {
+  display: grid;
+  gap: 0.35rem;
+}
+.details dd {
+  margin: 0;
+  color: var(--fg-2);
+}
+.details a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sheetWrap {
+  min-width: 0;
+}
+.sheet {
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  border-radius: var(--r-lg);
+  background: rgb(243 243 241 / 0.92);
+  backdrop-filter: blur(18px);
+  color: var(--fg);
+  box-shadow:
+    0 50px 100px -40px rgb(0 0 0 / 0.8),
+    0 0 0 1px rgb(255 255 255 / 0.4);
+}
+
+/* ── Directory ─────────────────────────────────────────── */
+.dirHead {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  margin-bottom: var(--block-gap);
+}
+.dirHead :global(.t-title) {
+  max-width: 14ch;
+}
+.groups {
+  display: grid;
+  gap: 3rem;
+}
+.group {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border-radius: var(--r-lg);
+  background: rgb(14 14 17 / 0.55);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.groupLabel {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--fg-2);
+}
+.groupLabel:hover {
+  color: var(--fg);
+}
+.links {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.link {
+  --rx: 50%;
+  --ry: 50%;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 1rem;
+  padding: 1.1rem 0.75rem;
+  margin-inline: -0.75rem;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* A ring of light spreads from where the pointer came in. */
+.link::before {
+  content: '';
+  position: absolute;
+  left: var(--rx);
+  top: var(--ry);
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(230 57 70 / 0.28) 0 40%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.7s var(--ease-premium);
+  z-index: -1;
+}
+.link:hover::before,
+.link:focus-visible::before {
+  transform: translate(-50%, -50%) scale(400);
+}
+.linkTitle {
+  font-size: 1.125rem;
+  letter-spacing: -0.02em;
+}
+.linkFor {
+  grid-column: 1;
+  font-size: 0.875rem;
+  color: var(--fg-3);
+}
+.linkArrow {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  color: var(--fg-3);
+  transition:
+    transform var(--dur-3) var(--ease-premium),
+    color var(--dur-3) var(--ease-premium);
+}
+.link:hover .linkArrow {
+  transform: translateX(5px);
+  color: var(--fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drop {
+    animation: none;
+  }
+}
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+  .intro {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+  .groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}

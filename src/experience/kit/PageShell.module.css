@@ -1,0 +1,6 @@
+/* Content floats above the page's 3D world (which is drawn on the shared canvas, z 0). */
+.page {
+  position: relative;
+  z-index: 1;
+  color: var(--fg);
+}

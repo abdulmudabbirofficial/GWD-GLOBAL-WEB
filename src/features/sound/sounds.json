@@ -1,0 +1,47 @@
+{
+  "pad": 1.0,
+  "stems": {
+    "bed": {
+      "period": 32,
+      "webm": "/media/sound/bed.f4309b39.webm",
+      "m4a": "/media/sound/bed.e5fa7e99.m4a"
+    },
+    "keys": {
+      "period": 36,
+      "webm": "/media/sound/keys.998ebe09.webm",
+      "m4a": "/media/sound/keys.4f934afe.m4a"
+    },
+    "air": {
+      "period": 24,
+      "webm": "/media/sound/air.2289e725.webm",
+      "m4a": "/media/sound/air.60b2475a.m4a"
+    },
+    "pulse": {
+      "period": 12,
+      "webm": "/media/sound/pulse.1c10a8f2.webm",
+      "m4a": "/media/sound/pulse.5704002d.m4a"
+    }
+  },
+  "cues": {
+    "tick": {
+      "webm": "/media/sound/tick.c366079b.webm",
+      "m4a": "/media/sound/tick.05d1cd1e.m4a"
+    },
+    "tap": {
+      "webm": "/media/sound/tap.e2f7153b.webm",
+      "m4a": "/media/sound/tap.ef419d89.m4a"
+    },
+    "swell": {
+      "webm": "/media/sound/swell.b2d08b2b.webm",
+      "m4a": "/media/sound/swell.63eba02a.m4a"
+    },
+    "chime": {
+      "webm": "/media/sound/chime.9718fca3.webm",
+      "m4a": "/media/sound/chime.9fbbdb23.m4a"
+    },
+    "drop": {
+      "webm": "/media/sound/drop.5b94b463.webm",
+      "m4a": "/media/sound/drop.ec37b30a.m4a"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.head {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  margin-bottom: var(--block-gap);
+}
+.head :global(.t-title) {
+  max-width: 14ch;
+}
+.list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.event {
+  display: grid;
+  gap: 1rem;
+  padding-block: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.date {
+  font-size: clamp(1.4rem, 1rem + 1vw, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+.body {
+  display: grid;
+  gap: 0.6rem;
+}
+.empty {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: start;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 0 0 rgb(230 57 70 / 0.5);
+  animation: pulse 2s var(--ease-out) infinite;
+}
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 14px rgb(230 57 70 / 0);
+  }
+}
+@media (min-width: 900px) {
+  .event {
+    grid-template-columns: 14rem minmax(0, 1fr) auto;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .empty {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.events[data-see-through] .empty,
+.events[data-see-through] .list {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 0 1px var(--glass-line);
+  border-radius: var(--r-lg);
+}
+.events[data-see-through] .list {
+  padding-inline: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+/* Sports: the matchday face, condensed and uppercase. */
+.events[data-voice='stadium'] .head :global(.t-title) {
+  max-width: 16ch;
+  font-family: var(--font-stadium);
+  font-size: clamp(3rem, 1rem + 5.6vw, 7rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.events[data-voice='stadium'] .date {
+  font-family: var(--font-stadium);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.events[data-voice='stadium'] .empty :global(.t-h3) {
+  font-family: var(--font-stadium);
+  font-size: clamp(1.6rem, 1rem + 1.4vw, 2.4rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+}
+/* Over the live stadium the heading block carries a soft shadow to stay readable. */
+.events[data-voice='stadium'] .head {
+  text-shadow: 0 2px 22px rgb(0 0 0 / 0.85);
+}

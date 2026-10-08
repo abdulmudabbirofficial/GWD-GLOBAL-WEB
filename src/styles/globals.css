@@ -1,0 +1,383 @@
+@import './tokens.css';
+
+/* ── Reset ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  hanging-punctuation: first last;
+  /* Nothing may widen the layout viewport; clip (unlike hidden) keeps sticky working. */
+  overflow-x: clip;
+  background: var(--c-dark);
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+body {
+  min-height: 100svh;
+  background: var(--c-dark);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-title);
+  line-height: var(--lh-title);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+strong,
+b {
+  font-weight: 550;
+}
+p {
+  text-wrap: pretty;
+}
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+::selection {
+  background: var(--c-red);
+  color: #fff;
+}
+
+/* ── Focus: always visible for keyboard users ───────────── */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: var(--r-sm);
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Accessibility helpers ───────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link {
+  position: fixed;
+  top: var(--sp-3);
+  left: var(--sp-3);
+  z-index: calc(var(--z-preloader) + 1);
+  padding: var(--sp-3) var(--sp-5);
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--c-ink);
+  font-weight: 500;
+  transform: translateY(-200%);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* ── Page worlds: the colour behind each page's live 3D ───── */
+html,
+body {
+  transition: background-color 0.8s var(--ease-in-out);
+}
+html[data-page-tone='pale'],
+html[data-page-tone='pale'] body {
+  background: var(--c-pale);
+}
+html[data-page-tone='warm'],
+html[data-page-tone='warm'] body {
+  background: #d6d3cf;
+}
+html[data-page-tone='dusk'],
+html[data-page-tone='dusk'] body {
+  background: #2a2b31;
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: calc(var(--max-w) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/*
+ * A chapter is one studio. Its background is opaque so the shared WebGL
+ * canvas behind the page only shows through chapters that ask for it
+ * (data-see-through). A "sheet" chapter slides over the one before it with
+ * rounded top corners instead of a hard cut.
+ */
+.chapter {
+  position: relative;
+  z-index: var(--z-page);
+  background: var(--bg);
+  color: var(--fg);
+  padding-block: var(--pad);
+}
+.chapter[data-see-through] {
+  background: transparent;
+}
+.chapter[data-sheet] {
+  margin-top: calc(var(--r-lg) * -1);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
+.chapter[data-round-end] {
+  border-bottom-left-radius: var(--r-lg);
+  border-bottom-right-radius: var(--r-lg);
+}
+.chapter[data-flush] {
+  padding-block: 0;
+}
+
+/* ── Type roles ─────────────────────────────────────────── */
+.t-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--track-display);
+  text-wrap: balance;
+}
+.t-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-title);
+  font-weight: var(--fw-title);
+  line-height: var(--lh-title);
+  letter-spacing: var(--track-title);
+  text-wrap: balance;
+}
+.t-statement {
+  font-size: var(--fs-statement);
+  font-weight: 300;
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.t-h3 {
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.t-h4 {
+  font-size: var(--fs-h4);
+  font-weight: 450;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+.t-lead {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  color: var(--fg-2);
+  letter-spacing: -0.01em;
+  max-width: var(--measure);
+}
+.t-body {
+  color: var(--fg-2);
+  max-width: var(--measure);
+}
+.t-small {
+  font-size: var(--fs-small);
+  color: var(--fg-3);
+}
+.t-num {
+  font-variant-numeric: tabular-nums;
+}
+/* Emphasis inside display type: the brand red, in the same family. */
+.t-display em,
+.t-title em,
+.t-statement em {
+  font-style: normal;
+  color: var(--accent-text);
+}
+/* Small technical metadata. */
+.meta,
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  font-weight: 400;
+  letter-spacing: var(--track-meta);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  line-height: 1.4;
+}
+/* A chapter label: quiet serif italic, the Cartier move. */
+.chapter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-chapter);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--fg-2);
+}
+.chapter-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+  flex: none;
+}
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+}
+
+/* ── Film grain (fixed, never on scrolling layers) ─────── */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 1.2s steps(5) infinite;
+}
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -3%);
+  }
+  60% {
+    transform: translate(-2%, -1%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Each page settles in once after a navigation. */
+.route {
+  animation: route-in 0.9s var(--ease-out) both;
+}
+@keyframes route-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ── Reveals ─────────────────────────────────────────────── */
+@media (scripting: enabled) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition:
+      opacity 1.1s var(--ease-out),
+      transform 1.3s var(--ease-out);
+    transition-delay: var(--delay, 0ms);
+  }
+  [data-reveal='fade'] {
+    transform: none;
+  }
+  [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+.split-line {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* Kinetic headlines wait hidden until GSAP has split them (safety net after 5s). */
+.js [data-kinetic] {
+  visibility: hidden;
+}
+.js.kinetic-safe [data-kinetic] {
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  .js [data-kinetic] {
+    visibility: visible;
+  }
+}

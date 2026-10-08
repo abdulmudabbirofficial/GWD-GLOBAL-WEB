@@ -1,0 +1,369 @@
+.section {
+  position: relative;
+  padding-block: var(--pad);
+}
+.head {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  margin-bottom: var(--block-gap);
+}
+.headCenter {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
+  margin-bottom: var(--block-gap);
+}
+.headCenter :global(.t-lead) {
+  margin-inline: auto;
+  max-width: 44ch;
+}
+/* Sports speaks louder: condensed, uppercase, tight. */
+.bigTitle {
+  font-size: clamp(3rem, 1rem + 5.6vw, 7rem);
+  font-weight: 800;
+  font-family: var(--font-stadium);
+  text-transform: uppercase;
+  line-height: 0.88;
+  max-width: 16ch;
+}
+.glass {
+  background: rgb(8 10 9 / 0.62);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+  border-radius: var(--r-lg);
+}
+
+/* ── Problems ──────────────────────────────────────────── */
+.problems {
+  display: grid;
+  gap: 1.25rem;
+}
+.problem {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 10 9 / 0.62);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.slam {
+  display: inline-block;
+  font-size: clamp(4rem, 2.5rem + 5vw, 8rem);
+  font-weight: 800;
+  font-family: var(--font-stadium);
+  line-height: 0.85;
+  color: var(--c-red-hot);
+  transform-origin: left bottom;
+}
+.problemTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-stadium);
+  text-transform: uppercase;
+}
+
+/* ── Pillar tabs ───────────────────────────────────────── */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+  font-size: 0.9375rem;
+  color: var(--fg-2);
+  transition:
+    background-color var(--dur-3) var(--ease-premium),
+    color var(--dur-3) var(--ease-premium);
+}
+.tab[aria-selected='true'] {
+  background: var(--c-white);
+  color: var(--c-ink);
+}
+.tabN {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--c-red-hot);
+}
+.tab[aria-selected='true'] .tabN {
+  color: var(--c-red-deep);
+}
+.panel {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 10 9 / 0.62);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.panelMedia {
+  animation: slideIn 0.8s var(--ease-premium) both;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem) rotate(-2deg);
+  }
+}
+.panelLine {
+  font-size: var(--fs-lead);
+  margin-bottom: 1rem;
+}
+.points {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.points li {
+  display: grid;
+  gap: 0.35rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--line);
+  animation: rise 0.7s var(--ease-premium) both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+/* ── Scoreboard ────────────────────────────────────────── */
+.board {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+  text-align: center;
+  padding: clamp(2rem, 5vw, 4rem);
+  border-radius: var(--r-lg);
+  background: radial-gradient(circle at 50% 0%, rgb(60 8 14 / 0.6), rgb(6 6 8 / 0.85) 70%);
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.08),
+    0 40px 80px -40px rgb(0 0 0 / 0.8);
+}
+.boardTitle {
+  font-size: clamp(1.8rem, 1.2rem + 2vw, 3.2rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  max-width: 20ch;
+}
+.cells {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 52rem;
+}
+.cell {
+  display: grid;
+  gap: 0.6rem;
+  padding: clamp(1rem, 2.5vw, 2rem) 0.5rem;
+  border-radius: var(--r-md);
+  background: #050506;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+.led {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 1.2rem + 3.6vw, 4.8rem);
+  font-weight: 500;
+  color: #ff4b59;
+  text-shadow:
+    0 0 12px rgb(255 59 74 / 0.8),
+    0 0 40px rgb(255 59 74 / 0.4);
+  background-image: radial-gradient(rgb(0 0 0 / 0.55) 1px, transparent 1.2px);
+  background-size: 4px 4px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: flicker 4s steps(1) infinite;
+}
+@keyframes flicker {
+  0%,
+  96%,
+  100% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.7;
+  }
+}
+.boardBody {
+  max-width: 56ch;
+}
+
+/* ── Deployment reel ───────────────────────────────────── */
+.reel {
+  display: flex;
+  gap: 1rem;
+  padding-inline: var(--gutter);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.reel::-webkit-scrollbar {
+  display: none;
+}
+.reel:active {
+  cursor: grabbing;
+}
+.deploy {
+  flex: none;
+  width: min(84vw, 30rem);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 10 9 / 0.66);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+  user-select: none;
+}
+.crest {
+  position: relative;
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 20%;
+  overflow: hidden;
+}
+.crestImg {
+  object-fit: contain;
+}
+.deployName {
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: var(--font-stadium);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.deployFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.deployFacts div {
+  display: grid;
+  gap: 0.3rem;
+}
+.deployFacts dd {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-stadium);
+  color: var(--c-red-hot);
+  line-height: 1;
+}
+
+/* ── Crest marquee ─────────────────────────────────────── */
+.marquee {
+  display: grid;
+  gap: 1rem;
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.run {
+  display: flex;
+  width: max-content;
+  animation: run 50s linear infinite;
+}
+.run[data-dir='right'] {
+  animation-direction: reverse;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee .run {
+    animation: none;
+  }
+}
+.marquee:hover .run {
+  animation-play-state: paused;
+}
+.runList {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.crestTile {
+  position: relative;
+  flex: none;
+  width: clamp(6rem, 9vw, 8rem);
+  aspect-ratio: 1;
+  border-radius: 20%;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -24px rgb(0 0 0 / 0.8);
+}
+@keyframes run {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── Partner table ─────────────────────────────────────── */
+.table {
+  display: grid;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: rgb(8 10 9 / 0.62);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.row {
+  display: grid;
+  gap: 0.75rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border-bottom: 1px solid var(--line);
+  transition: background-color var(--dur-3) var(--ease-premium);
+}
+.row:last-child {
+  border-bottom: 0;
+}
+.row:hover {
+  background: rgb(230 57 70 / 0.08);
+}
+.who {
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: var(--font-stadium);
+  text-transform: uppercase;
+}
+.terms {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.0625rem;
+  color: var(--fg-2);
+}
+
+@media (min-width: 900px) {
+  .problems {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .panel {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+  .row {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: baseline;
+  }
+}
+@media (max-width: 640px) {
+  .cells {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,194 @@
+/* The blueprint world: sections are transparent; panels are dark glass. */
+.glass {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: var(--r-lg);
+  background: rgb(14 14 17 / 0.62);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+
+/* ── Hero ───────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: calc(var(--header-h) + 2rem) 3rem;
+}
+.heroGrid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+.heroCopy {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: start;
+}
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+.back {
+  font-size: 0.875rem;
+  color: var(--fg-2);
+}
+.back::before {
+  content: '← ';
+}
+.back:hover {
+  color: var(--fg);
+}
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 1.2rem + 5vw, 6.4rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  max-width: 11ch;
+  font-variant-numeric: tabular-nums;
+}
+.headline {
+  max-width: 34ch;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.heroMedia {
+  width: 100%;
+  max-width: 44rem;
+  justify-self: end;
+}
+.heroMedia :global(img) {
+  filter: drop-shadow(0 50px 60px rgb(0 0 0 / 0.6));
+}
+
+/* ── Promise ───────────────────────────────────────────── */
+.promise {
+  position: relative;
+  padding-block: var(--pad);
+}
+.promise :global(.chapter-label) {
+  margin-bottom: 2rem;
+}
+.promiseText {
+  max-width: 34ch;
+  font-size: clamp(1.5rem, 1rem + 1.6vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+}
+
+/* ── Capabilities ──────────────────────────────────────── */
+.caps {
+  position: relative;
+  padding-block: var(--pad);
+}
+.sectionHead {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  margin-bottom: var(--block-gap);
+}
+.sectionHead :global(.t-title) {
+  max-width: 16ch;
+}
+
+/* ── Fit ───────────────────────────────────────────────── */
+.fit {
+  position: relative;
+  padding-block: var(--pad);
+}
+.fitGrid {
+  display: grid;
+  gap: 1rem;
+}
+.checks {
+  display: grid;
+  margin-top: 1.5rem;
+}
+.checks li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: baseline;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  letter-spacing: -0.015em;
+}
+.checks li::before {
+  content: '';
+  flex: none;
+  width: 0.7rem;
+  height: 0.35rem;
+  border-left: 2px solid var(--c-red-hot);
+  border-bottom: 2px solid var(--c-red-hot);
+  transform: rotate(-45deg) translateY(-0.2rem);
+}
+.stack :global(ul) {
+  margin-top: 1.5rem;
+}
+
+/* ── Next ──────────────────────────────────────────────── */
+.next {
+  position: relative;
+  padding-block: var(--pad) calc(var(--pad) + var(--r-lg));
+}
+.nextLink {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  border-radius: var(--r-lg);
+  background: rgb(14 14 17 / 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.nextCopy {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+.nextName {
+  font-size: var(--fs-display);
+  font-weight: 300;
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-display);
+  transition: color var(--dur-3) var(--ease-premium);
+}
+.nextLink:hover .nextName {
+  color: var(--accent-text);
+}
+.nextN {
+  color: var(--fg-3);
+}
+.nextMedia {
+  display: block;
+  width: min(100%, 26rem);
+  justify-self: end;
+  transition: transform 1.2s var(--ease-premium);
+}
+.nextLink:hover .nextMedia {
+  transform: translateY(-8px) rotate(-1.5deg);
+}
+
+@media (min-width: 960px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: 3rem;
+  }
+  .fitGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stack {
+    grid-column: 1 / -1;
+  }
+  .nextLink {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}

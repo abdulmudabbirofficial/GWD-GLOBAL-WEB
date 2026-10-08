@@ -1,0 +1,31 @@
+/* The products chapter, on the approach back to the mark. */
+.products {
+  position: relative;
+  min-height: 170svh;
+  padding-block: var(--pad);
+}
+.head {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: var(--block-gap);
+}
+.head :global(.chapter-label) {
+  margin-bottom: 1.25rem;
+}
+.head :global(.t-lead) {
+  max-width: 38ch;
+  align-self: end;
+}
+.productsTitle {
+  font-size: clamp(2.3rem, 1.1rem + 3.6vw, 4.8rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  max-width: 14ch;
+}
+@media (min-width: 960px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    align-items: end;
+  }
+}

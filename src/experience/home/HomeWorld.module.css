@@ -1,0 +1,582 @@
+/* Home: chapters over the GWD world. Copy sits in sticky panels of dark glass. */
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.title {
+  font-size: clamp(2.3rem, 1.1rem + 3.6vw, 4.8rem);
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+.glass {
+  background: rgb(8 8 10 / 0.58);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.centerHead {
+  display: grid;
+  gap: 1.1rem;
+  justify-items: center;
+  text-align: center;
+}
+
+/* ── Hero ──────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 240svh;
+}
+.heroInner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+}
+.fallbackMark {
+  position: absolute;
+  top: 24%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 1.25rem;
+  width: min(70vw, 34rem);
+}
+.fallbackMark svg {
+  width: 100%;
+  height: auto;
+}
+.fallbackMark span {
+  font-family: var(--font-mono);
+  letter-spacing: 0.5em;
+  font-size: clamp(0.8rem, 0.6rem + 0.6vw, 1.15rem);
+  text-transform: uppercase;
+}
+/* The flat mark holds the stage until the 3D world has drawn its first frame,
+   then hands over (no black gap while the scene compiles). */
+.fallbackMark {
+  transition:
+    opacity 0.6s var(--ease-premium),
+    transform 0.8s var(--ease-premium);
+}
+:global(html:has([data-name='home'][data-ready])) .fallbackMark {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.96);
+  pointer-events: none;
+}
+.heroBottom {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+}
+.heroTitle {
+  font-size: clamp(2.6rem, 1rem + 5vw, 6.6rem);
+  font-weight: 300;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+  max-width: 11ch;
+  text-shadow: 0 10px 50px rgb(0 0 0 / 0.7);
+}
+/* Each word rises out of its own slot. */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  vertical-align: top;
+}
+.word > span {
+  display: inline-block;
+  animation: wordRise 1.3s var(--ease-premium) both;
+}
+@keyframes wordRise {
+  from {
+    transform: translateY(105%) rotate(4deg);
+  }
+}
+.heroSide {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  max-width: 34rem;
+  animation: fadeIn 1.2s var(--ease-premium) 0.9s both;
+}
+.heroLead {
+  text-shadow: 0 4px 24px rgb(0 0 0 / 0.8);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+.place {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.cue {
+  width: 3.5rem;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-red), transparent);
+  transform-origin: left;
+  animation: cue 2.4s var(--ease-in-out) infinite;
+}
+@keyframes cue {
+  0% {
+    transform: scaleX(0);
+  }
+  60%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+
+/* ── Network ───────────────────────────────────────────── */
+.network {
+  position: relative;
+  height: 300svh;
+}
+.networkInner {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+.networkHead {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+.facts {
+  display: grid;
+  gap: 0.75rem;
+}
+.fact {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  padding: clamp(0.9rem, 1.8vw, 1.4rem) clamp(1rem, 2vw, 1.75rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 8 10 / 0.6);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.fact:first-child .factNum {
+  color: var(--c-red-hot);
+}
+.factNum {
+  display: flex;
+  align-items: baseline;
+  min-width: 4.4ch;
+  font-size: clamp(2.6rem, 1.6rem + 3vw, 4.6rem);
+  font-weight: 200;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.factSuffix {
+  font-size: 0.6em;
+  color: var(--c-red-hot);
+}
+.factText {
+  display: grid;
+  gap: 0.25rem;
+}
+.factLabel {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ── Service ring ──────────────────────────────────────── */
+.ring {
+  position: relative;
+  height: calc(var(--count, 15) * 30svh + 60svh);
+}
+.ringInner {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  height: 100%;
+  padding-block: calc(var(--header-h) + 1rem) 2rem;
+}
+.panel {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  justify-items: start;
+  max-width: 30rem;
+  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 8 10 / 0.62);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.ringTitle {
+  font-size: clamp(1.4rem, 1rem + 1vw, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+.current {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: start;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  animation: swap 0.7s var(--ease-premium) both;
+}
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(1.2rem);
+    filter: blur(6px);
+  }
+}
+.counter {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--fg-3);
+}
+.counter span {
+  color: var(--c-red-hot);
+}
+.serviceName {
+  font-size: clamp(2rem, 1.2rem + 2.4vw, 3.6rem);
+  font-weight: 300;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.serviceLine {
+  font-size: var(--fs-lead);
+  color: var(--fg-2);
+}
+.explore {
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--r-pill);
+  background: var(--c-white);
+  color: var(--c-ink);
+  font-size: 0.875rem;
+  transition: transform var(--dur-3) var(--ease-premium);
+}
+.explore:hover {
+  transform: translateX(4px);
+}
+.index {
+  display: none;
+}
+.ringAll {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── Process road ──────────────────────────────────────── */
+.road {
+  position: relative;
+  height: 300svh;
+}
+.roadInner {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  align-content: center;
+}
+.roadInner > .title {
+  font-size: clamp(1.8rem, 1rem + 2.2vw, 3.2rem);
+  max-width: 14ch;
+}
+.roadStep {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  max-width: 32rem;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 8 10 / 0.62);
+  backdrop-filter: blur(16px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+  animation: swap 0.7s var(--ease-premium) both;
+}
+.roadNum {
+  font-size: clamp(3rem, 2rem + 3vw, 5rem);
+  font-weight: 100;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--c-red-hot);
+}
+.roadName {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.6rem, 1.1rem + 1.4vw, 2.4rem);
+  font-weight: 300;
+  letter-spacing: -0.035em;
+}
+.roadDots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.roadDots button {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+  font-size: 0.8125rem;
+  color: var(--fg-3);
+  transition:
+    background-color var(--dur-3) var(--ease-premium),
+    color var(--dur-3) var(--ease-premium);
+}
+.roadDots li[data-past] button {
+  color: var(--fg-2);
+}
+.roadDots li[data-on] button {
+  background: var(--c-red);
+  box-shadow: none;
+  color: var(--c-white);
+}
+
+/* ── Clients ───────────────────────────────────────────── */
+.clients {
+  position: relative;
+  height: 230svh;
+}
+.clientsInner {
+  display: grid;
+  gap: clamp(2rem, 5vh, 3.5rem);
+}
+.wall {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+.tile {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  background: rgb(243 243 241 / 0.94);
+  box-shadow: 0 30px 60px -36px rgb(0 0 0 / 0.9);
+  transform-style: preserve-3d;
+}
+.tileLogo {
+  width: 70%;
+  height: 60%;
+}
+
+/* ── Team ──────────────────────────────────────────────── */
+.team {
+  position: relative;
+  min-height: 220svh;
+  padding-block: var(--pad);
+}
+.teamInner {
+  display: grid;
+  gap: clamp(2.5rem, 6vh, 4.5rem);
+}
+.teamHead {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+.teamFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+}
+.teamFacts div {
+  display: grid;
+  gap: 0.2rem;
+}
+.teamFacts dd {
+  margin: 0;
+  font-size: clamp(2.4rem, 1.6rem + 2vw, 3.8rem);
+  font-weight: 200;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: var(--c-red-hot);
+}
+.community {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+.communityText {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 8 10 / 0.6);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.communityLine {
+  font-size: clamp(1.3rem, 1rem + 0.9vw, 1.9rem);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+.strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+.strip li {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  box-shadow: 0 30px 50px -30px rgb(0 0 0 / 0.9);
+}
+.strip li:first-child {
+  grid-column: 1 / -1;
+  aspect-ratio: 16 / 9;
+}
+.strip img {
+  object-fit: cover;
+}
+
+/* ── Finale ────────────────────────────────────────────── */
+.finale {
+  position: relative;
+  min-height: 140svh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: clamp(5rem, 14vh, 9rem);
+}
+.finaleInner {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: center;
+  text-align: center;
+}
+.motto {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--fg-2);
+}
+.finaleTitle {
+  font-size: clamp(2.6rem, 1rem + 5vw, 6rem);
+  font-weight: 300;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  text-shadow: 0 10px 50px rgb(0 0 0 / 0.7);
+}
+.finaleInner .actions {
+  justify-content: center;
+}
+
+@media (min-width: 720px) {
+  .wall {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+  .strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .strip li:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: auto;
+  }
+}
+@media (min-width: 960px) {
+  .heroBottom {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 3rem;
+  }
+  .networkInner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  .ringInner {
+    grid-template-columns: minmax(0, 30rem) 1fr auto;
+  }
+  .index {
+    display: grid;
+    grid-column: 3;
+    gap: 0.1rem;
+    align-self: center;
+  }
+  .index button {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+    color: var(--fg-4);
+    text-align: left;
+    transition:
+      color var(--dur-3) var(--ease-premium),
+      transform var(--dur-3) var(--ease-premium);
+  }
+  .index button span {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+  }
+  .index button:hover {
+    color: var(--fg-2);
+  }
+  .index button[data-on] {
+    color: var(--fg);
+    transform: translateX(-6px);
+  }
+  .index button[data-on] span {
+    color: var(--c-red-hot);
+  }
+  .wall {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .community {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+@media (max-width: 959px) {
+  .sticky {
+    align-items: flex-end;
+    padding-bottom: 1.5rem;
+  }
+  .ringInner,
+  .roadInner {
+    height: auto;
+    padding-block: 0;
+  }
+  .network .sticky {
+    align-items: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .word > span,
+  .heroSide {
+    animation: none;
+  }
+}

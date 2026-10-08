@@ -1,0 +1,580 @@
+{
+  "photos": [
+    {
+      "slug": "team-auditorium-above",
+      "file": "team-auditorium-above.0bf13ef6.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "The GWD team in the VJIT auditorium, seen from above"
+    },
+    {
+      "slug": "gwd-shirts",
+      "file": "gwd-shirts.2d7d4ccb.webp",
+      "w": 1440,
+      "h": 1080,
+      "tag": "team",
+      "alt": "Three members showing the GET WORK DONE on their shirts"
+    },
+    {
+      "slug": "community-hall",
+      "file": "community-hall.667ab3b9.webp",
+      "w": 1600,
+      "h": 1204,
+      "tag": "events",
+      "alt": "The whole room together after a community event"
+    },
+    {
+      "slug": "club-launch-vjit",
+      "file": "club-launch-vjit.5bb1d6be.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "The GWD Club launch on stage at VJIT"
+    },
+    {
+      "slug": "team-auditorium",
+      "file": "team-auditorium.3f16e10e.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "The GWD team together in the VJIT auditorium"
+    },
+    {
+      "slug": "workshop-lab",
+      "file": "workshop-lab.2a268d93.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "A packed computer lab during a GWD workshop"
+    },
+    {
+      "slug": "bizhack-stage",
+      "file": "bizhack-stage.619c71b8.webp",
+      "w": 1012,
+      "h": 1800,
+      "tag": "events",
+      "alt": "Members on stage at BizHack"
+    },
+    {
+      "slug": "courtyard",
+      "file": "courtyard.c2cc8541.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "The GWD team gathered in a courtyard, seen from above"
+    },
+    {
+      "slug": "team-turf",
+      "file": "team-turf.1dfc34e8.webp",
+      "w": 1800,
+      "h": 1014,
+      "tag": "team",
+      "alt": "The team on the football turf"
+    },
+    {
+      "slug": "mudabbir-session",
+      "file": "mudabbir-session.89987b5d.webp",
+      "w": 1350,
+      "h": 1800,
+      "tag": "workshops",
+      "alt": "Mohammed Abdul Mudabbir leading a session"
+    },
+    {
+      "slug": "founder-mudabbir",
+      "file": "founder-mudabbir.b024bd7f.webp",
+      "w": 900,
+      "h": 1125,
+      "tag": "workshops",
+      "alt": "Mohammed Abdul Mudabbir leading a session"
+    },
+    {
+      "slug": "founder-rahman",
+      "file": "founder-rahman.fc48be31.webp",
+      "w": 720,
+      "h": 900,
+      "tag": "workshops",
+      "alt": "Mohd Abdul Rahman Pasha teaching from the lectern"
+    },
+    {
+      "slug": "team-stairwell",
+      "file": "team-stairwell.e495daf1.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "Members of the GWD team on a stairwell, seen from above"
+    },
+    {
+      "slug": "stage-vjit",
+      "file": "stage-vjit.bcf1de91.webp",
+      "w": 1600,
+      "h": 1200,
+      "tag": "events",
+      "alt": "Guests and members on stage at VJIT"
+    },
+    {
+      "slug": "speaker-lab",
+      "file": "speaker-lab.9bfccbc0.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "A speaker leading a session from the front of the lab"
+    },
+    {
+      "slug": "team-steps",
+      "file": "team-steps.748bfff8.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "Members of the GWD team on the steps outside"
+    },
+    {
+      "slug": "hsl-auction",
+      "file": "hsl-auction.5f726799.webp",
+      "w": 1800,
+      "h": 1013,
+      "tag": "events",
+      "alt": "Around the table at the HSL auction, the team crests set out"
+    },
+    {
+      "slug": "rooftop-trio",
+      "file": "rooftop-trio.caba9236.webp",
+      "w": 1280,
+      "h": 960,
+      "tag": "team",
+      "alt": "Three members on a rooftop at night, the city lit up behind them"
+    },
+    {
+      "slug": "podcast",
+      "file": "podcast.fc85b803.webp",
+      "w": 1600,
+      "h": 1200,
+      "tag": "events",
+      "alt": "Recording a podcast"
+    },
+    {
+      "slug": "bizhack-cheque",
+      "file": "bizhack-cheque.5e94e304.webp",
+      "w": 1200,
+      "h": 1600,
+      "tag": "events",
+      "alt": "Members holding the BizHack cheque"
+    },
+    {
+      "slug": "team-red-wall",
+      "file": "team-red-wall.ce699c1b.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "Four members of the GWD team on the stairs"
+    },
+    {
+      "slug": "team-campus",
+      "file": "team-campus.384d8c94.webp",
+      "w": 1280,
+      "h": 720,
+      "tag": "team",
+      "alt": "The team outdoors on campus"
+    },
+    {
+      "slug": "lab-group",
+      "file": "lab-group.70e57a27.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "A full lab after a workshop"
+    },
+    {
+      "slug": "club-stage",
+      "file": "club-stage.80da1f7d.webp",
+      "w": 1800,
+      "h": 1013,
+      "tag": "events",
+      "alt": "Guests on stage at a GWD Club event"
+    },
+    {
+      "slug": "team-portico",
+      "file": "team-portico.b572c3c4.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "Members of the team together under a portico on campus"
+    },
+    {
+      "slug": "exhibition-team",
+      "file": "exhibition-team.9af035ef.webp",
+      "w": 1800,
+      "h": 1014,
+      "tag": "events",
+      "alt": "Members at an exhibition stall"
+    },
+    {
+      "slug": "lectern",
+      "file": "lectern.f13b022c.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "Presenting from the lectern"
+    },
+    {
+      "slug": "award-group",
+      "file": "award-group.b34d2688.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "Members with an award at a tech event"
+    },
+    {
+      "slug": "team-stairs",
+      "file": "team-stairs.f4b9c74f.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "Members of the team together on the stairs"
+    },
+    {
+      "slug": "speaker",
+      "file": "speaker.f3aebb8a.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "A speaker mid-session"
+    },
+    {
+      "slug": "lab-work",
+      "file": "lab-work.a4115991.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "Students working through an exercise in the lab"
+    },
+    {
+      "slug": "industry-booth",
+      "file": "industry-booth.b172815b.webp",
+      "w": 1600,
+      "h": 1200,
+      "tag": "events",
+      "alt": "Talking with visitors at an industry booth"
+    },
+    {
+      "slug": "two-members",
+      "file": "two-members.b0c7b91c.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "Two members on a campus balcony"
+    },
+    {
+      "slug": "rooftop-duo",
+      "file": "rooftop-duo.ce6879eb.webp",
+      "w": 960,
+      "h": 1280,
+      "tag": "team",
+      "alt": "Two members on a rooftop at night, thumbs up"
+    },
+    {
+      "slug": "faculty-vjit",
+      "file": "faculty-vjit.16f8e7e2.webp",
+      "w": 1800,
+      "h": 1014,
+      "tag": "team",
+      "alt": "Members with faculty at VJIT"
+    },
+    {
+      "slug": "outdoor-stall",
+      "file": "outdoor-stall.6329e7dd.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "events",
+      "alt": "Students gathered around a laptop at an outdoor stall"
+    },
+    {
+      "slug": "tech-stall",
+      "file": "tech-stall.1c0952ce.webp",
+      "w": 1600,
+      "h": 726,
+      "tag": "events",
+      "alt": "Members at the GWD stall with laptops on show"
+    },
+    {
+      "slug": "welcome-stage",
+      "file": "welcome-stage.325142c1.webp",
+      "w": 1600,
+      "h": 1200,
+      "tag": "events",
+      "alt": "Guests being welcomed on stage"
+    },
+    {
+      "slug": "team-laughs",
+      "file": "team-laughs.e07db082.webp",
+      "w": 1800,
+      "h": 1200,
+      "tag": "team",
+      "alt": "Two members sharing a laugh"
+    },
+    {
+      "slug": "summit-interview",
+      "file": "summit-interview.a9e4d63e.webp",
+      "w": 926,
+      "h": 1080,
+      "tag": "events",
+      "alt": "An interview at an entrepreneurship summit"
+    },
+    {
+      "slug": "lab-session",
+      "file": "lab-session.0e43b837.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "A hands-on session at the computers"
+    },
+    {
+      "slug": "book-gift",
+      "file": "book-gift.c5e92cb5.webp",
+      "w": 1200,
+      "h": 1600,
+      "tag": "events",
+      "alt": "Presenting a book to a guest"
+    },
+    {
+      "slug": "event-guest",
+      "file": "event-guest.576a330d.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "Members with a guest at an event"
+    },
+    {
+      "slug": "exhibition-faculty",
+      "file": "exhibition-faculty.b0b05d88.webp",
+      "w": 1800,
+      "h": 1014,
+      "tag": "events",
+      "alt": "Members and faculty at an exhibition stall"
+    },
+    {
+      "slug": "three-members",
+      "file": "three-members.732c5336.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "team",
+      "alt": "Three members together at an event"
+    },
+    {
+      "slug": "lab-front",
+      "file": "lab-front.ff82d465.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "A presenter at the front of the lab"
+    },
+    {
+      "slug": "laptop-stall",
+      "file": "laptop-stall.c14ce8ec.webp",
+      "w": 1800,
+      "h": 1014,
+      "tag": "events",
+      "alt": "Students around a laptop at an outdoor stall"
+    },
+    {
+      "slug": "exhibition-guests",
+      "file": "exhibition-guests.80bf7baa.webp",
+      "w": 1800,
+      "h": 1014,
+      "tag": "events",
+      "alt": "Guests visiting the stall"
+    },
+    {
+      "slug": "ecosystem-event",
+      "file": "ecosystem-event.7f79f3a7.webp",
+      "w": 1013,
+      "h": 1800,
+      "tag": "events",
+      "alt": "Two members at an ecosystem partners event"
+    },
+    {
+      "slug": "planning",
+      "file": "planning.42930b89.webp",
+      "w": 1280,
+      "h": 960,
+      "tag": "team",
+      "alt": "Working through a printed plan together"
+    },
+    {
+      "slug": "tech-campus",
+      "file": "tech-campus.7971ef95.webp",
+      "w": 1280,
+      "h": 960,
+      "tag": "team",
+      "alt": "Three members on a visit to a tech campus"
+    },
+    {
+      "slug": "event-trio",
+      "file": "event-trio.f9fbffb8.webp",
+      "w": 1617,
+      "h": 1800,
+      "tag": "events",
+      "alt": "Three members at an evening event"
+    },
+    {
+      "slug": "lab-ready",
+      "file": "lab-ready.555122b5.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "workshops",
+      "alt": "A computer lab set up for a session"
+    },
+    {
+      "slug": "collage-avgci",
+      "file": "collage-avgci.8e121b44.webp",
+      "w": 1365,
+      "h": 1800,
+      "tag": "events",
+      "alt": "A collage from the AVGCI booth at an exhibition"
+    },
+    {
+      "slug": "collage-turf",
+      "file": "collage-turf.f98c15bc.webp",
+      "w": 1350,
+      "h": 1800,
+      "tag": "events",
+      "alt": "A collage: filming at the turf, and a stall outdoors"
+    },
+    {
+      "slug": "gwd-stall-cse",
+      "file": "gwd-stall-cse.e79d696f.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "Three members at the GWD stall at a CSE (AI & ML) department event"
+    },
+    {
+      "slug": "vjit-front-desk",
+      "file": "vjit-front-desk.6e492469.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "Four people at the Vidya Jyothi Institute of Technology front desk"
+    },
+    {
+      "slug": "turf-shoot-crew",
+      "file": "turf-shoot-crew.c037b850.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "Filming a football match at the turf"
+    },
+    {
+      "slug": "turf-shoot-touchline",
+      "file": "turf-shoot-touchline.4d63156c.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "The camera crew on the touchline"
+    },
+    {
+      "slug": "turf-shoot-photographer",
+      "file": "turf-shoot-photographer.e1235d7f.webp",
+      "w": 1350,
+      "h": 1800,
+      "tag": "events",
+      "alt": "A photographer kneeling by the pitch during the shoot"
+    },
+    {
+      "slug": "turf-shoot-lenses",
+      "file": "turf-shoot-lenses.b3b894ac.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "events",
+      "alt": "Two photographers at work at the turf"
+    },
+    {
+      "slug": "turf-shoot-team",
+      "file": "turf-shoot-team.8aae42bc.webp",
+      "w": 1350,
+      "h": 1800,
+      "tag": "team",
+      "alt": "Members by the turf after the shoot"
+    },
+    {
+      "slug": "turf-shoot-group",
+      "file": "turf-shoot-group.56137eda.webp",
+      "w": 1800,
+      "h": 1350,
+      "tag": "team",
+      "alt": "The team gathered by the turf after the shoot"
+    },
+    {
+      "slug": "member-portrait",
+      "file": "member-portrait.9edb4963.webp",
+      "w": 1440,
+      "h": 1440,
+      "tag": "team",
+      "alt": "A member’s portrait, arms folded"
+    },
+    {
+      "slug": "campus-group",
+      "file": "campus-group.deab34f1.webp",
+      "w": 1040,
+      "h": 780,
+      "tag": "team",
+      "alt": "Community members together on campus"
+    },
+    {
+      "slug": "session-selfie",
+      "file": "session-selfie.c96c9c24.webp",
+      "w": 1280,
+      "h": 591,
+      "tag": "workshops",
+      "alt": "A selfie during a session in a classroom"
+    },
+    {
+      "slug": "signing-table",
+      "file": "signing-table.8c289d4f.webp",
+      "w": 720,
+      "h": 1280,
+      "tag": "events",
+      "alt": "Signing papers at a café table"
+    },
+    {
+      "slug": "signing-close",
+      "file": "signing-close.c354ed4e.webp",
+      "w": 720,
+      "h": 1280,
+      "tag": "events",
+      "alt": "Signing the papers, close up"
+    },
+    {
+      "slug": "gwd-document",
+      "file": "gwd-document.e79a7f1f.webp",
+      "w": 1200,
+      "h": 1600,
+      "tag": "events",
+      "alt": "Two members holding a GWD document in an office"
+    },
+    {
+      "slug": "signed-group",
+      "file": "signed-group.b76ec614.webp",
+      "w": 720,
+      "h": 1280,
+      "tag": "events",
+      "alt": "Five members holding signed documents"
+    },
+    {
+      "slug": "event-backdrop",
+      "file": "event-backdrop.63c47326.webp",
+      "w": 960,
+      "h": 1280,
+      "tag": "events",
+      "alt": "Three members at an event backdrop"
+    },
+    {
+      "slug": "indoor-duo",
+      "file": "indoor-duo.83a45385.webp",
+      "w": 960,
+      "h": 1280,
+      "tag": "team",
+      "alt": "Two members together indoors"
+    }
+  ]
+}

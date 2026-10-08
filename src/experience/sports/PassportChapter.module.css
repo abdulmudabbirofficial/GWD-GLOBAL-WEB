@@ -1,0 +1,116 @@
+.passport {
+  height: 300svh;
+}
+.passport:not([data-webgl]) {
+  height: auto;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + 1rem) 1.5rem;
+  overflow: hidden;
+}
+.passport:not([data-webgl]) .sticky {
+  position: relative;
+}
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+.copy {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  padding: clamp(1.25rem, 2.5vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: rgb(8 10 9 / 0.6);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.title {
+  max-width: 14ch;
+  font-family: var(--font-stadium);
+  font-size: clamp(2.6rem, 1rem + 4.2vw, 5.4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.9;
+}
+.copy :global(.t-body) {
+  max-width: 46ch;
+}
+.editions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.editions li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--r-pill);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+  font-size: 0.875rem;
+  color: var(--fg-3);
+  transition:
+    color var(--dur-3) var(--ease-premium),
+    background-color var(--dur-3) var(--ease-premium),
+    box-shadow var(--dur-3) var(--ease-premium);
+}
+.editions li[data-on] {
+  color: var(--c-ink);
+  background: var(--c-white);
+  box-shadow: none;
+}
+.editions li[data-on] :global(.meta) {
+  color: var(--c-red-deep);
+}
+.stage {
+  position: relative;
+  height: clamp(20rem, 52svh, 40rem);
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.facts div {
+  display: grid;
+  gap: 0.35rem;
+}
+.facts dd {
+  margin: 0;
+  font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+}
+.note {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 0.75rem;
+  font-size: 0.5625rem;
+  opacity: 0.7;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4rem;
+  }
+  .stage {
+    height: min(66svh, 42rem);
+  }
+  .facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

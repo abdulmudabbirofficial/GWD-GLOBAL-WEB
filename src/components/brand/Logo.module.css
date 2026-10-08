@@ -1,0 +1,30 @@
+.logo {
+  width: auto;
+  overflow: visible;
+}
+
+/* The GWD logo in its exact colours, everywhere: red letters, maroon brackets. */
+.brand .letters,
+.inverse .letters {
+  fill: #b40001;
+}
+.brand .bracketBl,
+.brand .bracketTr,
+.inverse .bracketBl,
+.inverse .bracketTr {
+  fill: #781215;
+}
+
+/* Brackets open outward when the logo's link is hovered, "framing the work". */
+.bracketBl,
+.bracketTr {
+  transition: transform var(--dur-3) var(--ease-out);
+}
+:global(a):hover > .logo .bracketBl,
+:global(a):focus-visible > .logo .bracketBl {
+  transform: translate(-34px, 26px);
+}
+:global(a):hover > .logo .bracketTr,
+:global(a):focus-visible > .logo .bracketTr {
+  transform: translate(34px, -26px);
+}

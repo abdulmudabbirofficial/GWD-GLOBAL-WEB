@@ -1,0 +1,1 @@
+ALTER TABLE "services" ADD COLUMN "short_name" varchar(40) DEFAULT '' NOT NULL;

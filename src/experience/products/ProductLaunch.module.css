@@ -1,0 +1,213 @@
+/* Tall chapters with a sticky hold, so each product stays up long enough to read. */
+.launch {
+  position: relative;
+  height: 250svh;
+}
+.launch[data-last] {
+  height: 320svh;
+}
+.hold {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-block: calc(var(--header-h) + 1rem) 2rem;
+  overflow: hidden;
+}
+/* The scan: a red line with a soft glow that crosses the chapter once. */
+.scan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -4%;
+  width: 2px;
+  background: var(--c-red);
+  box-shadow:
+    0 0 24px 6px rgb(230 57 70 / 0.55),
+    0 0 120px 30px rgb(230 57 70 / 0.18);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.launch[data-seen] .scan {
+  animation: scan 2.8s var(--ease-in-out) forwards;
+}
+@keyframes scan {
+  0% {
+    left: -4%;
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    left: 104%;
+    opacity: 0;
+  }
+}
+.grid {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+.copy,
+.stage {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 2.4s var(--ease-in-out);
+}
+.launch[data-seen] .copy,
+.launch[data-seen] .stage {
+  clip-path: inset(0 -10% 0 0);
+}
+.copy {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: var(--r-lg);
+  background: rgb(10 10 13 / 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+.idx {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--c-red-hot);
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / 0.08);
+  font-size: 0.75rem;
+}
+.status i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--c-red);
+  animation: blink 1.6s ease-in-out infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+.name {
+  /* Sized by the screen's height too, so the whole panel (down to its buttons) fits on a laptop. */
+  font-size: clamp(2.6rem, min(1.4rem + 5.6vw, 10.5svh), 7.5rem);
+  font-weight: 300;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+}
+.tagline {
+  font-size: var(--fs-lead);
+  color: var(--fg);
+  max-width: 30ch;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.stage {
+  position: relative;
+}
+/* Shorter screens: a tighter panel, same content. */
+@media (max-height: 900px) {
+  .hold {
+    padding-block: calc(var(--header-h) + 0.5rem) 1.25rem;
+  }
+  .copy {
+    gap: 0.9rem;
+    padding: clamp(1.25rem, 2.4vw, 2rem);
+  }
+  .copy :global(.t-body) {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+  .actions {
+    margin-top: 0.25rem;
+  }
+}
+.float {
+  will-change: transform;
+}
+.float :global(img) {
+  filter: drop-shadow(0 60px 70px rgb(0 0 0 / 0.7));
+}
+.spots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.spot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(0.75rem);
+  transition:
+    opacity 1s var(--ease-premium) var(--d),
+    transform 1.2s var(--ease-premium) var(--d);
+}
+.spot[data-side='r'] {
+  flex-direction: row-reverse;
+  transform: translate(-100%, 0.75rem);
+}
+.launch[data-seen] .spot {
+  opacity: 1;
+  transform: none;
+}
+.launch[data-seen] .spot[data-side='r'] {
+  transform: translateX(-100%);
+}
+.pin {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 0 4px rgb(230 57 70 / 0.25);
+}
+.tag {
+  position: relative;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--r-pill);
+  background: rgb(243 243 241 / 0.94);
+  color: var(--c-ink);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  .launch[data-flip] .copy {
+    order: 2;
+  }
+}
+@media (max-width: 640px) {
+  .spot {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .copy,
+  .stage {
+    clip-path: none;
+  }
+}

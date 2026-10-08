@@ -1,0 +1,67 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-preloader);
+  display: none;
+  place-items: center;
+  color: var(--c-white);
+  background: radial-gradient(60% 50% at 50% 45%, #18181b, var(--c-dark) 70%);
+  clip-path: inset(0 0 0 0);
+}
+:global(html.intro) .preloader {
+  display: grid;
+}
+.mark {
+  width: min(36vw, 16rem);
+  overflow: visible;
+}
+.bracket {
+  fill: #781215;
+}
+.letters {
+  fill: #b40001;
+}
+.count {
+  position: absolute;
+  left: var(--hud);
+  bottom: calc(var(--hud) + 1.5rem);
+  display: flex;
+  align-items: flex-start;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 200;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+.count i {
+  font-style: normal;
+  font-size: 0.35em;
+  margin-top: 0.15em;
+  color: var(--c-red);
+}
+.caption {
+  position: absolute;
+  right: var(--hud);
+  bottom: calc(var(--hud) + 1.5rem);
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--track-meta);
+  text-transform: uppercase;
+  color: rgb(243 243 241 / 0.5);
+}
+.track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgb(255 255 255 / 0.08);
+}
+.bar {
+  position: absolute;
+  inset: 0;
+  background: var(--c-red);
+  transform: scaleX(0);
+  transform-origin: left;
+}

@@ -1,0 +1,121 @@
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.4rem;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  padding: 0.7rem 0.8rem;
+  border-radius: var(--r-input);
+  background: var(--tint);
+  transition:
+    background-color var(--dur-2) var(--ease-out),
+    transform var(--dur-3) var(--ease-premium);
+}
+.logo,
+.monogram {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.logo {
+  background-color: var(--line-2);
+  border-radius: 6px;
+  transition: background-color var(--dur-2) var(--ease-out);
+}
+/* Masks (and so the downloads) only once the list is near the viewport. */
+:global([data-logos='on']) .logo {
+  background-color: var(--fg-2);
+  border-radius: 0;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+@media (scripting: none) {
+  .logo {
+    background-color: var(--fg-2);
+    border-radius: 0;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+  }
+}
+.monogram {
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--fg-2);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--fg-2);
+  transition:
+    color var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out);
+}
+.name {
+  font-size: var(--fs-small);
+  font-weight: 450;
+  line-height: 1.2;
+  color: var(--fg-2);
+  overflow-wrap: anywhere;
+}
+@media (hover: hover) {
+  .item:hover {
+    background: color-mix(in srgb, var(--brand) 9%, transparent);
+  }
+  .item:hover .logo {
+    background-color: var(--brand);
+  }
+  .item:hover .monogram {
+    color: var(--brand);
+    border-color: var(--brand);
+  }
+  .item:hover .name {
+    color: var(--fg);
+  }
+}
+
+.compact {
+  grid-template-columns: repeat(auto-fill, minmax(2.75rem, 1fr));
+  border: 0;
+  gap: var(--sp-2);
+}
+.compact .item {
+  justify-content: center;
+  padding: var(--sp-2);
+  border: 0;
+}
+.compact .logo,
+.compact .monogram {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.compact .name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Phones: two columns, tighter cells. */
+@media (max-width: 479px) {
+  .grid:not(.compact) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .item {
+    padding: var(--sp-3);
+    gap: var(--sp-2);
+  }
+  .logo,
+  .monogram {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

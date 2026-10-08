@@ -1,0 +1,179 @@
+/*
+ * GWD Global design tokens, v5 "Studio Noir". See DESIGN.md.
+ *
+ * Two studios: the dark studio (the default) and the pale studio, matched to
+ * the light render backdrops so images bleed into the page. A chapter picks
+ * its studio with data-tone; text and line colours follow it.
+ */
+
+:root {
+  /* ── Palette ─────────────────────────────────────────── */
+  --c-red: #e63946;
+  --c-red-hot: #ff5a66;
+  --c-red-deep: #b3122a;
+  --c-red-ink: #c41e33; /* red for small text on the pale studio (AA) */
+  --c-dark: #09090b;
+  --c-dark-2: #111113;
+  --c-dark-3: #1a1a1d;
+  --c-pale: #cbccd0;
+  --c-pale-2: #bfc0c5;
+  --c-pale-3: #e4e5e8;
+  --c-ink: #0c0c0e;
+  --c-white: #f3f3f1;
+  --c-paper: #ffffff;
+
+  /* ── Typography ──────────────────────────────────────── */
+  --font-sans: var(--font-geist), 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-geist), 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: var(--font-newsreader), Georgia, 'Times New Roman', serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --font-stadium: var(--font-big-shoulders), 'Arial Narrow', sans-serif;
+  --font-warm: var(--font-bricolage), var(--font-geist), sans-serif;
+
+  --fs-display: clamp(2.9rem, 1rem + 5.6vw, 7rem);
+  --fs-title: clamp(2.1rem, 1rem + 3.1vw, 4.25rem);
+  --fs-statement: clamp(1.7rem, 0.95rem + 2.3vw, 3.4rem);
+  --fs-h2: var(--fs-title);
+  --fs-h3: clamp(1.35rem, 1.05rem + 0.8vw, 1.85rem);
+  --fs-h4: clamp(1.1rem, 1.02rem + 0.3vw, 1.25rem);
+  --fs-lead: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
+  --fs-body: 1rem;
+  --fs-small: 0.9375rem;
+  --fs-meta: 0.6875rem;
+  --fs-chapter: clamp(1.05rem, 0.98rem + 0.25vw, 1.2rem);
+  --fs-hero: var(--fs-display);
+  --fs-section: var(--fs-title);
+
+  --fw-display: 300;
+  --fw-title: 300;
+  --fw-ui: 450;
+  --ws-display: 100%;
+  --wd-h2: 100%;
+  --lh-display: 0.98;
+  --lh-title: 1.04;
+  --lh-body: 1.65;
+  --track-display: -0.045em;
+  --track-title: -0.04em;
+  --track-meta: 0.08em;
+
+  /* ── Space ───────────────────────────────────────────── */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+  --sp-11: 12rem;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --hud: var(--gutter);
+  --pad: clamp(7rem, 16vh, 12rem); /* a chapter's vertical padding */
+  --section-m: var(--pad);
+  --block-gap: clamp(3.5rem, 8vh, 6.5rem); /* between a chapter's intro and its content */
+  --col-gap: clamp(1rem, 2vw, 2rem);
+  --max-w: 1480px;
+  --measure: 58ch;
+  --header-h: 76px;
+
+  /* ── Shape ───────────────────────────────────────────── */
+  --r-sm: 10px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-input: 12px;
+  --r-card: var(--r-md);
+  --r-frame: var(--r-lg);
+  --r-pill: 999px;
+
+  /* ── Motion ──────────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-premium: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --dur-1: 180ms;
+  --dur-2: 320ms;
+  --dur-3: 600ms;
+  --dur-4: 900ms;
+  --dur-5: 1400ms;
+
+  /* ── Layers ──────────────────────────────────────────── */
+  --z-world: 0;
+  --z-page: 1;
+  --z-raised: 2;
+  --z-grain: 40;
+  --z-header: 50;
+  --z-menu: 60;
+  --z-transition: 70;
+  --z-preloader: 80;
+
+  /* ── Accent ──────────────────────────────────────────── */
+  --accent: var(--c-red);
+  --accent-press: var(--c-red-deep);
+  --brand: var(--c-red);
+  --on-accent: #fff;
+  --icon: 1.125rem;
+  --h: 3rem;
+}
+
+/* ── Studios (text and surfaces follow the chapter) ─────────── */
+/* Dark studio: the default. */
+:root,
+body,
+[data-tone='dark'],
+[data-theme='dark'],
+[data-theme='void'],
+[data-theme='night'],
+[data-theme='deep'] {
+  --bg: var(--c-dark);
+  --bg-solid: var(--c-dark-2);
+  --bg-raised: var(--c-dark-2);
+  --surface: rgb(255 255 255 / 0.04);
+  --surface-2: rgb(255 255 255 / 0.08);
+  --fg: var(--c-white);
+  --fg-2: rgb(243 243 241 / 0.74);
+  --fg-3: rgb(243 243 241 / 0.52);
+  --fg-4: rgb(243 243 241 / 0.22);
+  --line: rgb(243 243 241 / 0.1);
+  --line-2: rgb(243 243 241 / 0.2);
+  --accent-text: var(--c-red-hot);
+  --focus: var(--c-red-hot);
+  --error: var(--c-red-hot);
+  --tint: rgb(255 255 255 / 0.05);
+  --tint-2: rgb(255 255 255 / 0.09);
+  --glass: rgb(17 17 19 / 0.62);
+  --glass-line: rgb(255 255 255 / 0.1);
+  --btn-bg: var(--c-white);
+  --btn-fg: var(--c-ink);
+  color-scheme: dark;
+}
+
+/* Pale studio. */
+[data-tone='pale'],
+[data-theme='light'],
+[data-theme='haze'],
+[data-theme='paper'],
+[data-theme='day'] {
+  --bg: var(--c-pale);
+  --bg-solid: var(--c-pale-3);
+  --bg-raised: rgb(255 255 255 / 0.55);
+  --surface: rgb(255 255 255 / 0.32);
+  --surface-2: rgb(255 255 255 / 0.55);
+  --fg: var(--c-ink);
+  --fg-2: rgb(12 12 14 / 0.74);
+  --fg-3: rgb(12 12 14 / 0.56);
+  --fg-4: rgb(12 12 14 / 0.24);
+  --line: rgb(12 12 14 / 0.12);
+  --line-2: rgb(12 12 14 / 0.22);
+  --accent-text: var(--c-red-ink);
+  --focus: var(--c-red-ink);
+  --error: var(--c-red-ink);
+  --tint: rgb(12 12 14 / 0.05);
+  --tint-2: rgb(12 12 14 / 0.09);
+  --glass: rgb(255 255 255 / 0.5);
+  --glass-line: rgb(255 255 255 / 0.7);
+  --btn-bg: var(--c-ink);
+  --btn-fg: var(--c-white);
+  color-scheme: light;
+}

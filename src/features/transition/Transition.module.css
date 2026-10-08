@@ -1,0 +1,70 @@
+/*
+ * The page curtain: the dark studio rises from below with rounded shoulders,
+ * the red brackets close on the destination's name, then it lifts away.
+ */
+.wipe {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-transition);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  visibility: hidden;
+  background: radial-gradient(60% 50% at 50% 50%, #18181b, var(--c-dark) 75%);
+  clip-path: inset(100% 0 0 0 round 3rem 3rem 0 0);
+}
+.wipe[data-phase='cover'] {
+  visibility: visible;
+  pointer-events: auto;
+  clip-path: inset(0 0 0 0 round 0);
+  transition: clip-path 650ms var(--ease-in-out);
+}
+.wipe[data-phase='reveal'] {
+  visibility: visible;
+  clip-path: inset(0 0 100% 0 round 0 0 3rem 3rem);
+  transition: clip-path 850ms var(--ease-in-out) 120ms;
+}
+
+.frame {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  color: #fff;
+}
+.bl,
+.br {
+  width: clamp(1rem, 1.8vw, 1.6rem);
+  height: clamp(4rem, 9vw, 7.5rem);
+  border: 2px solid var(--c-red);
+  transition: transform 700ms var(--ease-out);
+}
+.bl {
+  border-right: 0;
+  transform: translateX(-4rem);
+}
+.br {
+  border-left: 0;
+  transform: translateX(4rem);
+}
+.label {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1rem + 2.6vw, 3.4rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(40%);
+  transition:
+    clip-path 600ms var(--ease-out),
+    transform 600ms var(--ease-out);
+}
+.wipe[data-phase='cover'] .bl,
+.wipe[data-phase='cover'] .br {
+  transform: none;
+  transition-delay: 200ms;
+}
+.wipe[data-phase='cover'] .label {
+  clip-path: inset(0 0 0 0);
+  transform: none;
+  transition-delay: 260ms;
+}

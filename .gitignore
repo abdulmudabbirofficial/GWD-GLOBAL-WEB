@@ -1,0 +1,24 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# local data (embedded dev database, uploaded media)
+.data/
+
+# env files — never commit secrets
+.env
+.env.local
+.env.*.local
+# generated credentials (scripts/create-owner.ts)
+*.local.txt
+
+# logs & os
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.qa-previews/

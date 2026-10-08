@@ -1,0 +1,28 @@
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-5);
+}
+.links a {
+  display: inline-flex;
+  gap: var(--sp-2);
+  align-items: baseline;
+  font-weight: 600;
+  color: var(--fg-2);
+  transition: color var(--dur-2) var(--ease-out);
+}
+.links a:hover,
+.links a:focus-visible {
+  color: var(--fg);
+}
+.index {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  color: var(--accent-text);
+}
+.digest {
+  font-family: var(--font-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--track-meta);
+  color: var(--fg-3);
+}

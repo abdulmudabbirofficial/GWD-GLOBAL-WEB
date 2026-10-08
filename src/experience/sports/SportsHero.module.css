@@ -1,0 +1,118 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  padding-top: calc(var(--header-h) + clamp(2rem, 6vh, 4rem));
+  padding-bottom: clamp(3rem, 8vh, 5rem);
+  display: flex;
+  align-items: center;
+}
+.grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+.copy {
+  display: grid;
+  gap: 1.75rem;
+  justify-items: start;
+}
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--r-pill);
+  background: rgb(0 0 0 / 0.45);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-red);
+  box-shadow: 0 0 0 0 rgb(230 57 70 / 0.6);
+  animation: pulse 1.8s var(--ease-premium) infinite;
+}
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgb(230 57 70 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(230 57 70 / 0);
+  }
+}
+/* Condensed, uppercase, tight: the stadium voice. */
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.22em;
+  max-width: 16ch;
+  font-size: clamp(3.4rem, 1rem + 6.8vw, 8.4rem);
+  font-weight: 800;
+  font-family: var(--font-stadium);
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 0.86;
+  text-shadow: 0 10px 50px rgb(0 0 0 / 0.65);
+}
+.word {
+  display: inline-block;
+  animation: walkout 0.9s var(--ease-premium) both;
+}
+.word[data-side='r'] {
+  animation-name: walkoutR;
+}
+@keyframes walkout {
+  from {
+    opacity: 0;
+    transform: translateX(-1.2em) skewX(-14deg);
+    filter: blur(6px);
+  }
+}
+@keyframes walkoutR {
+  from {
+    opacity: 0;
+    transform: translateX(1.2em) skewX(14deg);
+    filter: blur(6px);
+  }
+}
+.word:last-child {
+  color: var(--c-red-hot);
+}
+.lead {
+  max-width: 40ch;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.proof {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  max-width: 44ch;
+  line-height: 1.6;
+}
+.stage {
+  position: relative;
+  height: clamp(26rem, 62vh, 44rem);
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 3rem;
+  }
+  .stage {
+    height: min(78svh, 46rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    animation: none;
+  }
+}

@@ -1,0 +1,137 @@
+.earth {
+  --p: 0;
+  height: 420svh;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+.stage {
+  position: absolute;
+  inset: 0;
+}
+
+/* City labels, positioned by the 3D scene each frame. */
+.label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.2rem 0.55rem;
+  margin-left: 0.6rem;
+  border-radius: var(--r-pill);
+  background: rgb(9 9 11 / 0.55);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: var(--track-meta);
+  text-transform: uppercase;
+  color: rgb(243 243 241 / 0.9);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  translate: 0 -50%;
+  will-change: transform, opacity;
+}
+.label[data-hq] {
+  color: var(--c-red-hot);
+}
+:not([data-webgl]) > .sticky .label {
+  display: none;
+}
+
+.overlay {
+  position: relative;
+  height: 100%;
+  pointer-events: none;
+}
+.overlay a,
+.overlay button {
+  pointer-events: auto;
+}
+
+/* Over the clouds: where we are. */
+.opening {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  opacity: clamp(0, calc(1 - var(--p) * 6), 1);
+}
+.coords {
+  font-size: clamp(1.6rem, 1rem + 2vw, 2.8rem);
+  font-weight: 200;
+  letter-spacing: -0.04em;
+  color: var(--c-white);
+}
+
+/* Pulled back: who we work with. */
+.copy {
+  position: absolute;
+  left: var(--gutter);
+  top: 50%;
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+  max-width: min(30rem, calc(100% - var(--gutter) * 2));
+  /* The copy arrives as the network starts drawing out from Hyderabad, and stays while it completes. */
+  transform: translateY(calc(-50% + (1 - clamp(0, (var(--p) - 0.42) * 9, 1)) * 2rem));
+  opacity: clamp(0, calc((var(--p) - 0.42) * 9), 1);
+}
+:not([data-webgl]) > .sticky .copy {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+:not([data-webgl]) > .sticky .opening {
+  display: none;
+}
+.title {
+  max-width: 12ch;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem 2rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.list li {
+  display: grid;
+  gap: 0.1rem;
+  font-size: 0.9375rem;
+}
+.list .meta {
+  font-size: 0.5625rem;
+}
+
+@media (max-width: 899px) {
+  .copy {
+    top: calc(var(--header-h) + 1rem);
+    transform: translateY(calc((1 - clamp(0, (var(--p) - 0.42) * 9, 1)) * 2rem));
+  }
+  :not([data-webgl]) > .sticky .copy {
+    transform: none;
+  }
+  .copy :global(.t-lead) {
+    display: none;
+  }
+  .list {
+    display: none;
+  }
+}
+
+/* Without WebGL there is nothing to scroll through: one screen of copy. */
+.earth:not([data-webgl]) {
+  height: auto;
+}
+.earth:not([data-webgl]) .sticky {
+  position: relative;
+  min-height: 100svh;
+}

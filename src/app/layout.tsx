@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   creator: 'GWD Global Pvt. Ltd.',
   formatDetection: { telephone: false, address: false, email: false },
   robots: { index: true, follow: true },
+  // Google Search Console's ownership check (the "HTML tag" method). Set
+  // GOOGLE_SITE_VERIFICATION on Vercel to the code Search Console gives you,
+  // then redeploy; with it unset, no tag is rendered.
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport: Viewport = { themeColor: '#09090b', colorScheme: 'dark', width: 'device-width', initialScale: 1 };

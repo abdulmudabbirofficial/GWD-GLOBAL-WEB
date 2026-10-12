@@ -2,8 +2,10 @@
 
 import { COPY, type DocOf } from '@/content/copy';
 import { registerHref } from '@/features/register/intents';
+import { resolveSiteUrl } from './site-url';
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(/\/$/, '');
+/** The public address - the live domain in production; see site-url.ts. */
+export const SITE_URL = resolveSiteUrl();
 export const SITE_NAME = 'GWD Global';
 
 export interface NavItem {

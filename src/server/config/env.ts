@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { resolveSiteUrl } from '../../lib/site-url';
 
 /**
  * Validated server environment. Parsed lazily so that modules can be imported
@@ -16,7 +17,9 @@ const emptyToUndefined = (v: unknown) => (v === '' ? undefined : v);
 
 const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-  NEXT_PUBLIC_SITE_URL: z.url().default('http://localhost:3000'),
+  // The live domain in production, localhost in development (site-url.ts).
+  // Empty counts as unset, so a blank variable on the host falls back too.
+  NEXT_PUBLIC_SITE_URL: z.preprocess(emptyToUndefined, z.url().default(resolveSiteUrl())),
   DATABASE_URL: z.preprocess(emptyToUndefined, z.url().optional()),
   /** Connections per process. Use 1 with the embedded dev server (single-session PGlite). */
   DATABASE_POOL_MAX: z.coerce.number().int().min(1).max(50).default(10),

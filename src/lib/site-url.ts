@@ -15,8 +15,14 @@
  */
 export const PRODUCTION_SITE_URL = 'https://www.gwdglobal.in';
 
+/** A development address that must never be published: localhost, 127.0.0.1, ::1 or *.localhost. */
+const isLocal = (url: string) => /^https?:\/\/(localhost|127\.0\.0\.1|\[::1\]|[^/]+\.localhost)(:\d+)?(\/|$)/i.test(url);
+
 export function resolveSiteUrl(): string {
-  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (configured) return configured.replace(/\/$/, '');
-  return process.env.NODE_ENV === 'production' ? PRODUCTION_SITE_URL : 'http://localhost:3000';
+  const production = process.env.NODE_ENV === 'production';
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, '');
+  // A production build ignores a localhost value: the live site had NEXT_PUBLIC_SITE_URL copied from a
+  // local .env file, and kept telling Google its pages lived at http://localhost:3000.
+  if (configured && !(production && isLocal(configured))) return configured;
+  return production ? PRODUCTION_SITE_URL : 'http://localhost:3000';
 }

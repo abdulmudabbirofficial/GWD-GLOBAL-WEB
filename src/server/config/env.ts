@@ -19,7 +19,8 @@ const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   // The live domain in production, localhost in development (site-url.ts).
   // Empty counts as unset, so a blank variable on the host falls back too.
-  NEXT_PUBLIC_SITE_URL: z.preprocess(emptyToUndefined, z.url().default(resolveSiteUrl())),
+  // Always the resolved address (a localhost value is ignored in production; see site-url.ts).
+  NEXT_PUBLIC_SITE_URL: z.preprocess(() => resolveSiteUrl(), z.url()),
   DATABASE_URL: z.preprocess(emptyToUndefined, z.url().optional()),
   /** Connections per process. Use 1 with the embedded dev server (single-session PGlite). */
   DATABASE_POOL_MAX: z.coerce.number().int().min(1).max(50).default(10),
